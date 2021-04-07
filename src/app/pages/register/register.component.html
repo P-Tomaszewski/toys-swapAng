@@ -1,13 +1,21 @@
 <div id="login-box">
+  <form (ngSubmit)="onSubmit()" #regForm="ngForm">
   <div class="left">
     <h1>Zarejestruj sie</h1>
 
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
+    <input type="text" [(ngModel)]="register.name"
+           name="name" placeholder="imie" />
+    <input type="text" [(ngModel)]="register.login"
+           name="login" placeholder="login" />
+    <input type="text" [(ngModel)]="register.email"
+           name="text" placeholder="E-mail" />
+    <input type="password" [(ngModel)]="register.password"
+           name="password" placeholder="Password" />
     <input type="password" name="password2" placeholder="Retype password" />
 
-    <input type="submit" name="signup_submit" value="Rejestracja" />
+    <button id="addAdv" class="btn btn-outline-secondary btn-lg"
+            [disabled]="regForm.invalid">Zarejestruj
+    </button>
   </div>
 
   <div class="right">
@@ -18,4 +26,5 @@
     <button class="social-signin google">Log in with Google+</button>
   </div>
   <div class="or">Lub</div>
+  </form>
 </div>

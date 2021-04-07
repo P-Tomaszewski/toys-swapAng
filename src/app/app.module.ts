@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdvComponent } from './pages/adv/adv.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AdvDetailsComponent } from './pages/announcements/adv-details/adv-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
     RegisterComponent,
     LoginComponent,
     AdvComponent,
-    AnnouncementsComponent
+    AnnouncementsComponent,
+    AdvDetailsComponent
   ],
   imports: [
     BrowserModule,
