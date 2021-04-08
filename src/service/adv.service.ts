@@ -19,7 +19,13 @@ export class AdvService {
       // {headers}
     );
   }
+
   public save(adv: Advertisement) {
     return this.http.post<Advertisement>(this.advUrl, adv);
   }
+
+  public getAdvertisement(id: string): Observable<Advertisement>{
+    return this.http.get<Advertisement>('http://localhost:8080/advertisements/' + id);
+  }
+
 }
