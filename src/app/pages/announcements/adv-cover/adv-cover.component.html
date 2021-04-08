@@ -1,0 +1,13 @@
+<div class="grid__item">
+  <div class="col">
+    <div class="card">
+      <div class="card-image">
+      <img [src]="'assets/' + adv.photo" />
+      </div>
+      <div class="card-content">
+        <h5 class="black-text" [routerLink]="['/announcements', adv.id]">{{ adv.title }}</h5>
+        <p class="card-text">{{ adv.brand }}</p>
+      </div>
+    </div>
+  </div>
+</div>

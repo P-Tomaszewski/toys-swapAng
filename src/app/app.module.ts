@@ -12,6 +12,7 @@ import { AdvComponent } from './pages/adv/adv.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AdvDetailsComponent } from './pages/announcements/adv-details/adv-details.component';
+import { AdvCoverComponent } from './pages/announcements/adv-cover/adv-cover.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdvDetailsComponent } from './pages/announcements/adv-details/adv-detai
     LoginComponent,
     AdvComponent,
     AnnouncementsComponent,
-    AdvDetailsComponent
+    AdvDetailsComponent,
+    AdvCoverComponent
   ],
   imports: [
     BrowserModule,

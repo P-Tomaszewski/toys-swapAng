@@ -1,0 +1,32 @@
+img {
+  width: 299px;
+  height: 348px;
+}
+
+.grid__item {
+  max-width: 300px;
+  padding: 0 5px;
+}
+
+.card-content {
+  min-height: 100px;
+  min-width: 300px;
+}
+
+
+.card{
+  min-width: 300px;
+}
+
+
+.card-title {
+  /*width: 100%;*/
+}
+
+.black-text:hover {
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
