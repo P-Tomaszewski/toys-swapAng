@@ -1,0 +1,13 @@
+#carouselExampleIndicators{
+  width: 500px;
+  height: 500px;
+}
+
+.carousel-inner{
+  width: 500px;
+  height: 500px;
+}
+
+.container{
+ position: center;
+}

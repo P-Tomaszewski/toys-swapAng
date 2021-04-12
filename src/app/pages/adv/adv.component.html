@@ -1,5 +1,5 @@
 <div class="container">
-<form (ngSubmit)="onSubmit()" #advForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #advForm="ngForm">
     <div class="form-title">
       <label for="title">Tytuł</label>
       <input type="text" [(ngModel)]="adv.title"
@@ -37,7 +37,8 @@
     <div class="form-photo">
       <div class="form-group">
         <label for="add-photo">Dodaj zdjęcie</label>
-        <input type="file" [(ngModel)]="adv.photo"
+        <input type="file" (change)='handleImages($event)'
+               [(ngModel)]="adv.photo"
                class="form-control-file"
                id="add-photo"
                name="photo"
@@ -72,7 +73,7 @@
       </div>
       <div class="condition">
         <label for="inputCondition">City</label>
-        <select id="inputCondition"  [(ngModel)]="adv.city"
+        <select id="inputCondition" [(ngModel)]="adv.city"
                 class="form-control"
                 name="city"
                 required #description="ngModel">
@@ -94,6 +95,6 @@
     <button id="addAdv" class="btn btn-outline-secondary btn-lg"
             [disabled]="advForm.invalid">Dodaj ogłoszenie
     </button>
-</form>
+  </form>
 </div>
 
