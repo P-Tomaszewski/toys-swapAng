@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Advertisement} from "../../../spec/advertisement";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AdvService} from "../../../service/adv.service";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEventType, HttpResponse} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-adv',
@@ -14,6 +15,11 @@ export class AdvComponent {
   adv: Advertisement;
   private selectedFile: any;
 
+  selectedFiles: FileList;
+  currentFile: File;
+  progress = 0;
+  message = '';
+  fileInfos: Observable<any>;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private advService: AdvService,
@@ -37,5 +43,31 @@ export class AdvComponent {
     console.log(this.selectedFile);
     this.http.post('http://localhost:8080/upload',formData)
   }
+
+  selectFile(event): void {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(): void {
+    this.progress = 0;
+    this.currentFile = this.selectedFiles.item(0);
+    this.advService.upload(this.currentFile).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.message = event.body.message;
+          // this.fileInfos = this.advService.getFiles();
+        }
+      },
+      err => {
+        this.progress = 0;
+        this.message = 'Could not upload the file!';
+        this.currentFile = undefined;
+      });
+    this.selectedFiles = undefined;
+  }
+
+
 
 }
