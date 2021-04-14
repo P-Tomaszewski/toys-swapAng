@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {Advertisement} from "../spec/advertisement";
 
@@ -20,17 +20,18 @@ export class AdvService {
     );
   }
 
-  public save(adv: Advertisement) {
-    return this.http.post<Advertisement>(this.advUrl, adv);
+  public save(adv: Advertisement): Observable<Advertisement>{
+    return this.http.post<Advertisement>(this.advUrl, adv)
   }
 
-  upload(file: File): Observable<HttpEvent<any>> {
+  upload(file: File, id: string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-    formData.append('file', file);
-    const req = new HttpRequest('POST', this.advUrl, formData, {
+    formData.append('file', file, id);
+    const req = new HttpRequest('POST','http://localhost:8080/upload', formData, {
       reportProgress: true,
-      responseType: 'json'
+      responseType: 'json',
     });
+
 
     return this.http.request(req);
   }

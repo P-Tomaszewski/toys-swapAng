@@ -3,7 +3,8 @@ import {Advertisement} from "../../../spec/advertisement";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AdvService} from "../../../service/adv.service";
 import {HttpClient, HttpEventType, HttpResponse} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {Logger} from "codelyzer/util/logger";
 
 @Component({
   selector: 'app-adv',
@@ -14,6 +15,7 @@ export class AdvComponent {
 
   adv: Advertisement;
   private selectedFile: any;
+  asd: Advertisement;
 
   selectedFiles: FileList;
   currentFile: File;
@@ -28,7 +30,10 @@ export class AdvComponent {
   }
 
   onSubmit() {
-    this.advService.save(this.adv).subscribe();
+    this.advService.save(this.adv).subscribe(data => {
+     this.asd = data;
+   })
+    this.upload(this.asd.id);
     this.refresh();
   }
 
@@ -36,22 +41,14 @@ export class AdvComponent {
     window.location.reload();
   }
 
-  handleImages(Event){
-    this.selectedFile = Event.target.files[0];
-    let formData = new FormData();
-    formData.append("file", this.selectedFile);
-    console.log(this.selectedFile);
-    this.http.post('http://localhost:8080/upload',formData)
-  }
-
   selectFile(event): void {
     this.selectedFiles = event.target.files;
   }
 
-  upload(): void {
+  upload(id: string): void {
     this.progress = 0;
     this.currentFile = this.selectedFiles.item(0);
-    this.advService.upload(this.currentFile).subscribe(
+    this.advService.upload(this.currentFile, id).subscribe(
       event => {
         if (event.type === HttpEventType.UploadProgress) {
           this.progress = Math.round(100 * event.loaded / event.total);
