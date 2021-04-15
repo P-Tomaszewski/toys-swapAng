@@ -30,10 +30,33 @@ export class AdvComponent {
   }
 
   onSubmit() {
-    this.advService.save(this.adv).subscribe(data => {
-     this.asd = data;
-   })
-    this.upload(this.asd.id);
+    this.advService.save(this.adv)
+      .subscribe(data => {
+        console.log(data.id)
+        // this.asd = data;
+        // this.upload(data.id);
+        this.progress = 0;
+        this.currentFile = this.selectedFiles.item(0);
+        this.advService.upload(this.currentFile, data.id).subscribe(
+          event => {
+            if (event.type === HttpEventType.UploadProgress) {
+              this.progress = Math.round(100 * event.loaded / event.total);
+            } else if (event instanceof HttpResponse) {
+              this.message = event.body.message;
+              // this.fileInfos = this.advService.getFiles();
+            }
+          },
+          err => {
+            this.progress = 0;
+            this.message = 'Could not upload the file!';
+            this.currentFile = undefined;
+          });
+        this.selectedFiles = undefined;
+    }, error => {
+        console.log("dupa")
+      })
+    // this.upload(this.asd.id);
+    // this.advService.upload()
     this.refresh();
   }
 
@@ -45,7 +68,7 @@ export class AdvComponent {
     this.selectedFiles = event.target.files;
   }
 
-  upload(id: string): void {
+  upload(id: string): void { // niby niepotrzebne
     this.progress = 0;
     this.currentFile = this.selectedFiles.item(0);
     this.advService.upload(this.currentFile, id).subscribe(
