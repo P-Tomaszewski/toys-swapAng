@@ -1,29 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Advertisement} from "../spec/advertisement";
+import {Register} from "../spec/register";
 
-const API_URL = 'http://localhost:8080/announcements';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  advUrl: string;
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL , { responseType: 'text' });
+  constructor(private http: HttpClient) {
+    this.advUrl='http://localhost:8080/user'
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+  public getUserByName(username: string): Observable<Register> {
+    return this.http.get<Register>(this.advUrl + "/" + username,
+    );
   }
-
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  }
+  // getPublicContent(): Observable<any> {
+  //   return this.http.get(API_URL , { responseType: 'text' });
+  // }
+  //
+  // getUserBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'user', { responseType: 'text' });
+  // }
+  //
+  // getModeratorBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'mod', { responseType: 'text' });
+  // }
+  //
+  // getAdminBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  // }
 }

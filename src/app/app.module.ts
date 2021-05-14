@@ -13,7 +13,7 @@ import { AnnouncementsComponent } from './pages/announcements/announcements.comp
 import {HttpClientModule} from "@angular/common/http";
 import { AdvDetailsComponent } from './pages/announcements/adv-details/adv-details.component';
 import { AdvCoverComponent } from './pages/announcements/adv-cover/adv-cover.component';
-import {ProfileComponent} from "./profile/profile.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 

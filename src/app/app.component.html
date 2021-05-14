@@ -35,7 +35,7 @@
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
     <button class="btn btn-primary" routerLink="/adv" type="button">Dodaj ogłoszenie</button>
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        <a class="nav-link" routerLink="/profile/{{username}}">{{ username }}</a>
       </li>
       <li class="nav-item">
         <a href class="nav-link" (click)="logout()">LogOut</a>

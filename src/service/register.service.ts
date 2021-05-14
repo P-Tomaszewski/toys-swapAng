@@ -10,7 +10,7 @@ export class RegisterService {
   regUrl: string;
 
   constructor(private http: HttpClient) {
-    this.regUrl='http://localhost:8080/users'
+    this.regUrl='http://localhost:8080/api/auth/signup'
   }
 
   public findAll(): Observable<Register[]> {

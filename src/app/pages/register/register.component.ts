@@ -28,18 +28,22 @@ export class RegisterComponent implements OnInit{
   //   this.registerService.save(this.register).subscribe();
   //   this.refresh();
   // }
-  onSubmit(): void {
-    this.authService.register(this.form).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
+  onSubmit() {
+
+    this.registerService.save(this.register).subscribe();
+    this.refresh();
+    //   this.refresh();
+    // this.authService.register(this.form).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.isSuccessful = true;
+    //     this.isSignUpFailed = false;
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     this.isSignUpFailed = true;
+    //   }
+    // );
   }
 
   refresh(): void {

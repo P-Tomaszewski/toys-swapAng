@@ -8,19 +8,19 @@ import {UserService} from "../../../service/user.service";
 })
 export class HomeComponent implements OnInit {
 
-  content: string;
-
-  constructor(private userService: UserService) { }
+  // content: string;
+  //
+  // constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+  //   this.userService.getPublicContent().subscribe(
+  //     data => {
+  //       this.content = data;
+  //     },
+  //     err => {
+  //       this.content = JSON.parse(err.error).message;
+  //     }
+  //   );
   }
 
 }
