@@ -5,6 +5,7 @@ import {AdvService} from "../../../../service/adv.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-ad-details',
@@ -15,7 +16,9 @@ export class AdvDetailsComponent implements OnInit {
   advDetails: Observable<Advertisement>;
   private selectedFile: any;
 
-  constructor(private adv: AdvService, private  route: ActivatedRoute, private http: HttpClient) { }
+  content: string;
+
+  constructor(private adv: AdvService, private  route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void{
     this.advDetails = this.route.paramMap.pipe(

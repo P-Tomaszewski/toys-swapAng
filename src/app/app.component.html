@@ -1,2 +1,47 @@
-<app-menu></app-menu>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Toys-Swap</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/announcements" href="#">0-2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">3-8</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">9+</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Marka </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Lego</a></li>
+            <li><a class="dropdown-item" href="#">Fisherprice</a></li>
+            <li><a class="dropdown-item" href="#">PolFirm</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <button class="btn btn-primary me-md-2"  routerLink="/login" type="button">Login</button>
+    <button class="btn btn-primary" routerLink="/register" type="button">Rejestracja</button>
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <button class="btn btn-primary" routerLink="/adv" type="button">Dodaj ogłoszenie</button>
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
 <router-outlet></router-outlet>

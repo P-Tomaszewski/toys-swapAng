@@ -24,8 +24,7 @@ export class AdvComponent {
   fileInfos: Observable<any>;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private advService: AdvService,
-              private http: HttpClient) {
+              private advService: AdvService) {
     this.adv = new Advertisement();
   }
 
@@ -57,7 +56,9 @@ export class AdvComponent {
       })
     // this.upload(this.asd.id);
     // this.advService.upload()
-    this.refresh();
+    // this.refresh();
+
+    //Problem z dużymi plikami
   }
 
   refresh(): void {

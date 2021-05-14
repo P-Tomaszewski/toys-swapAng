@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'adv', component: AdvComponent},
+  {path: 'newadvertisements', component: AdvComponent},
   {path: 'announcements', component: AnnouncementsComponent},
   {path: 'announcements/:id', component: AdvDetailsComponent},
   {path: '**', redirectTo: ''},

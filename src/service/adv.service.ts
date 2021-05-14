@@ -14,9 +14,7 @@ export class AdvService {
   }
 
   public findAll(): Observable<Advertisement[]> {
-    // const headers = new HttpHeaders({ Authorization: 'Basic ' +sessionStorage.getItem('token')});
     return this.http.get<Advertisement[]>(this.advUrl,
-      // {headers}
     );
   }
 
