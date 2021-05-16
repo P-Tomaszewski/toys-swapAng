@@ -1,3 +1,5 @@
+import {Register} from "./register";
+
 export class Advertisement {
   id: string;
   title: string;
@@ -8,4 +10,6 @@ export class Advertisement {
   city: string;
   category: string;
   brand: string;
+  login: string;
+  user: string;
 }

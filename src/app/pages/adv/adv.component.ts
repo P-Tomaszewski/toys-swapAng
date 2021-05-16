@@ -5,6 +5,8 @@ import {AdvService} from "../../../service/adv.service";
 import {HttpClient, HttpEventType, HttpResponse} from "@angular/common/http";
 import {Observable, Subscription} from "rxjs";
 import {Logger} from "codelyzer/util/logger";
+import {UserService} from "../../../service/user.service";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-adv',
@@ -21,14 +23,18 @@ export class AdvComponent {
   currentFile: File;
   progress = 0;
   message = '';
+  userName: string;
   fileInfos: Observable<any>;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private advService: AdvService) {
+              private advService: AdvService,
+              private tokenStorageService: TokenStorageService) {
     this.adv = new Advertisement();
+   this.userName = tokenStorageService.getUser().username;
   }
 
   onSubmit() {
+    this.adv.login = this.userName
     this.advService.save(this.adv)
       .subscribe(data => {
         console.log(data.id)
@@ -52,7 +58,7 @@ export class AdvComponent {
           });
         this.selectedFiles = undefined;
     }, error => {
-        console.log("dupa")
+        console.log("err")
       })
     // this.upload(this.asd.id);
     // this.advService.upload()

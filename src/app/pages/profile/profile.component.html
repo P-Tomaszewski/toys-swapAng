@@ -20,15 +20,14 @@
     <strong>Miasto:</strong>
     {{ user.city }}
   </p>
-
-<!--  <strong>Roles:</strong>-->
-<!--  <ul>-->
-<!--    <li *ngFor="let role of currentUser.roles">-->
-<!--      {{ role }}-->
-<!--    </li>-->
-<!--  </ul>-->
+  <button id="addAdv"  class="btn btn-outline-secondary btn-lg">Edytuj</button>
+  <p>
+  <strong>Twoje ogłoszenia:</strong>
+  </p>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <app-adv-cover
+      *ngFor="let advertisement of user.advertisements "
+      [adv]="advertisement"
+    ></app-adv-cover>
+  </div>
 </div>
-
-<ng-template #loggedOut>
-  Please login.
-</ng-template>

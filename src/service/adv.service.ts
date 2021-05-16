@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {Advertisement} from "../spec/advertisement";
+import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,16 @@ export class AdvService {
     );
   }
 
+  public findByUser(user: String): Observable<Advertisement[]> {
+    return this.http.get<Advertisement[]>(this.advUrl + '/us' + '/' + user)
+  }
+
   public save(adv: Advertisement): Observable<Advertisement>{
     return this.http.post<Advertisement>(this.advUrl, adv)
+  }
+
+  public deleteAdv(id: string): Observable<any> {
+   return this.http.delete(this.advUrl + '/'+id)
   }
 
   upload(file: File, id: string): Observable<HttpEvent<any>> {

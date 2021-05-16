@@ -1,3 +1,5 @@
+import {Advertisement} from "./advertisement";
+
 export class User {
   id: string;
   username: string;
@@ -6,4 +8,5 @@ export class User {
   name: string;
   lastName: string;
   city: string;
+  adv: Advertisement[];
 }

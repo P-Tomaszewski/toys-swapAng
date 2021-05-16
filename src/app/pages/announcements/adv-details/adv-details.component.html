@@ -1,5 +1,7 @@
 <div class="container">
+
   <div class="row row-cols-md-3" *ngIf="advDetails | async as advertisement">
+    <form (ngSubmit)="onSubmit()">
     <div class="col">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -49,7 +51,13 @@
         </div>
       </form>
     </div>
+      <div class="alert alert-success" *ngIf="isLoggedIn && advOwner">
+    <button class="btn btn-outline-secondary btn-lg">Usun</button>
+      </div>
+  </form>
+
   </div>
+
 </div>
 
 <!--&lt;!&ndash;<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">&ndash;&gt;-->

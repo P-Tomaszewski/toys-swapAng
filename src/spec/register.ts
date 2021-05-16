@@ -1,3 +1,5 @@
+import {Advertisement} from "./advertisement";
+
 export class Register {
   id: string;
   username: string;
@@ -6,4 +8,5 @@ export class Register {
   name: string;
   lastName: string;
   city: string;
+  advertisements: Advertisement[];
 }
