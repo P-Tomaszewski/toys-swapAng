@@ -11,5 +11,5 @@ export class Advertisement {
   category: string;
   brand: string;
   login: string;
-  user: string;
+  user: Register;
 }

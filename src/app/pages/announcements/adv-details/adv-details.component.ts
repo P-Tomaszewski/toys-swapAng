@@ -36,11 +36,17 @@ export class AdvDetailsComponent implements OnInit {
     this.user.getUserByName(this.tokenStorage.getUser())
 
     this.advDetails.subscribe(data => {
-      console.log(data.user)
-      console.log(this.tokenStorage.getUser().username)
-      if(data.login == this.tokenStorage.getUser().username){
-        this.advOwner = true;
-      }
+      console.log(data.id)
+      this.user.getUserByName(this.tokenStorage.getUser().username).subscribe(data2 => {
+        for(var val of data2.advertisements){
+          if(data.id == val.id){
+            this.advOwner = true;
+            break;  //Wyświetla przycisk usun tylko dla ogłoszen zalogowanego właściciela
+          }
+        }
+      })
+
+
 
     })
 
