@@ -8,6 +8,7 @@ import {AdvComponent} from "./pages/adv/adv.component";
 import {AnnouncementsComponent} from "./pages/announcements/announcements.component";
 import {AdvDetailsComponent} from "./pages/announcements/adv-details/adv-details.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
+import {AdvEditComponent} from "./pages/adv-edit/adv-edit.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'adv', component: AdvComponent},
+  {path: 'advEdit/:id', component: AdvEditComponent},
   {path: 'announcements', component: AnnouncementsComponent},
   {path: 'announcements/:id', component: AdvDetailsComponent},
   {path: 'profile/:username', component: ProfileComponent},

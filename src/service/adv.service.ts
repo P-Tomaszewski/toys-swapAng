@@ -31,6 +31,10 @@ export class AdvService {
    return this.http.delete(this.advUrl + '/'+id)
   }
 
+  public updateAdv(adv: Advertisement):  Observable<Advertisement> {
+    return this.http.put<Advertisement>(this.advUrl + '/' + adv.id, adv)
+  }
+
   upload(file: File, id: string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file, id);

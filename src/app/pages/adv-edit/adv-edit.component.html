@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="advertisement | async as advertisement">
   <form (ngSubmit)="onSubmit()" #advForm="ngForm">
     <div class="form-title">
       <label for="title">Tytuł</label>
@@ -14,7 +14,7 @@
                   id="formDescription"
                   name="description"
                   rows="3"
-                  required #description="ngModel">
+                  required #description="ngModel" [(ngModel)] = "adv.description">
           </textarea>
       </div>
       <div class="age">
@@ -22,7 +22,7 @@
         <select type="text" class="form-control" [(ngModel)]="adv.ageCategory"
                 id="inputAge"
                 name="age"
-                required #description="ngModel">
+                required #description="ngModel" >
 
           <option>9+</option>
 
@@ -42,7 +42,7 @@
                class="form-control-file"
                id="add-photo"
                name="photo"
-               required #description="ngModel">
+               required #description="ngModel" >
       </div>
     </div>
 
@@ -61,10 +61,10 @@
       </div>
       <div class="brand">
         <label for="inputBrand">Marka</label>
-        <select id="inputBrand" [(ngModel)]="adv.brand"
+        <select id="inputBrand"
                 class="form-control"
                 name="brand"
-                required #description="ngModel">
+                required #description="ngModel" [(ngModel)]="adv.brand">
           <option >fisher price</option>
           <option>Lego</option>
           <option>Trefl</option>
@@ -73,10 +73,10 @@
       </div>
       <div class="condition">
         <label for="inputCondition">City</label>
-        <select id="inputCondition" [(ngModel)]="adv.city"
+        <select id="inputCondition"
                 class="form-control"
                 name="city"
-                required #description="ngModel">
+                required #description="ngModel" [(ngModel)]="adv.city">
           <option selected>Warszawa</option>
           <option>...</option>
         </select>
@@ -89,11 +89,10 @@
              class="form-control-file"
              id="price"
              name="price"
-             placeholder="0,00 zł"
              required #description="ngModel">
     </div>
     <button id="addAdv"  class="btn btn-outline-secondary btn-lg"
-            [disabled]="advForm.invalid">Dodaj ogłoszenie
+            [disabled]="advForm.invalid">Zmień
     </button>
   </form>
 </div>

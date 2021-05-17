@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {Advertisement} from "../../../spec/advertisement";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {AdvService} from "../../../service/adv.service";
 import {HttpClient, HttpEventType, HttpResponse} from "@angular/common/http";
 import {Observable, Subscription} from "rxjs";
 import {Logger} from "codelyzer/util/logger";
-import {UserService} from "../../../service/user.service";
-import {TokenStorageService} from "../../../service/token-storage.service";
 import {switchMap} from "rxjs/operators";
+import {Advertisement} from "../../../spec/advertisement";
+import {AdvService} from "../../../service/adv.service";
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
-  selector: 'app-adv',
-  templateUrl: './adv.component.html',
-  styleUrls: ['./adv.component.css']
+  selector: 'app-adv-edit',
+  templateUrl: './adv-edit.component.html',
+  styleUrls: ['./adv-edit.component.css']
 })
-export class AdvComponent{
+export class AdvEditComponent implements  OnInit{
 
   adv: Advertisement;
   private selectedFile: any;
-  asd: Advertisement;
+  advertisement: Observable<Advertisement>;
 
   selectedFiles: FileList;
   currentFile: File;
@@ -31,22 +30,21 @@ export class AdvComponent{
               private advService: AdvService,
               private tokenStorageService: TokenStorageService) {
     this.adv = new Advertisement();
-   this.userName = tokenStorageService.getUser().username;
+    this.userName = tokenStorageService.getUser().username;
   }
-  //
-  // ngOnInit(): void {
-  //   if(this.route.paramMap.pipe(
-  //     switchMap((params: ParamMap) => (params.get('id')))
-  //   ) != null){
-  //     console.log("git")
-  //   }
-  //   // console.log(this.route.paramMap.pipe(
-  //   //   switchMap((params: ParamMap) => (params.get('id')))).subscribe())
-  // }
+
+  ngOnInit(): void {
+   this.advertisement = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => this.advService.getAdvertisement(params.get('id'))))
+    this.advertisement.subscribe(data => {
+      this.adv = data;
+      this.adv.photo = null
+    })
+  }
 
   onSubmit() {
     this.adv.login = this.userName
-    this.advService.save(this.adv)
+    this.advService.updateAdv(this.adv)
       .subscribe(data => {
         console.log(data.id)
         // this.asd = data;
@@ -68,7 +66,7 @@ export class AdvComponent{
             this.currentFile = undefined;
           });
         this.selectedFiles = undefined;
-    }, error => {
+      }, error => {
         console.log("err")
       })
     // this.upload(this.asd.id);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Advertisement} from "../../../../spec/advertisement";
 import {AdvService} from "../../../../service/adv.service";
@@ -26,7 +26,7 @@ export class AdvDetailsComponent implements OnInit {
     this.advertisement = new Advertisement();
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.advDetails = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.adv.getAdvertisement(params.get('id')))
     )
@@ -38,25 +38,27 @@ export class AdvDetailsComponent implements OnInit {
     this.advDetails.subscribe(data => {
       console.log(data.id)
       this.user.getUserByName(this.tokenStorage.getUser().username).subscribe(data2 => {
-        for(var val of data2.advertisements){
-          if(data.id == val.id){
+        for (var val of data2.advertisements) {
+          if (data.id == val.id) {
             this.advOwner = true;
             break;  //Wyświetla przycisk usun tylko dla ogłoszen zalogowanego właściciela
           }
         }
       })
-
-
-
     })
 
   }
 
   onSubmit() {
-   this.advDetails.subscribe(data => this.adv.deleteAdv(data.id).subscribe())
+    this.advDetails.subscribe(data => this.adv.deleteAdv(data.id).subscribe())
     console.log("dell")
-    // this.adv.deleteAdv("97").subscribe()
   }
+
+  edit() {
+    this.advDetails.subscribe(data => this.adv.deleteAdv(data.id).subscribe())
+    console.log("dell")
+  }
+
   refresh(): void {
     window.location.reload();
   }

@@ -1,0 +1,93 @@
+.container{
+  /*line-height: 100px*/
+
+}
+.form-control-file{
+  height: 100px;
+}
+
+.row-photo {
+  /*background-color: #4D4D4F;*/
+}
+
+.row-desc{
+  background-color: #55ACEE;
+  height: 150px;
+}
+
+.col{
+}
+
+.input-group{
+  padding-top: 10px;
+}
+
+#formDescription{
+
+}
+
+.form-title{
+  border-bottom: 1px solid grey;
+  margin-top: 50px;
+
+}
+
+/*.form-photo{*/
+/*  margin-top: 10px;*/
+/*  border-bottom: 1px solid grey;*/
+
+/*}*/
+
+#inputAge{
+  margin-bottom: 10px;
+}
+
+.description{
+  margin-top: 5px;
+}
+
+.age{
+  margin-top: 5px;
+}
+
+.form-additionInformation{
+  border-bottom: 1px solid grey;
+  margin-top: 10px;
+}
+
+.form-price{
+  border-bottom: 1px solid grey;
+  margin-top: 10px;
+}
+
+.condition{
+  margin-top: 10px;
+}
+
+#inputCondition{
+  margin-bottom: 10px;
+}
+#title{
+
+}
+.brand{
+  margin-top: 10px;
+}
+.col-p{
+  width: 50%;
+  height: 100px;
+}
+.form-control-file{
+  width: 20%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+.container{
+  height: 2000px;
+  width: 700px;
+  /*background-color: azure;*/
+}
+
+.category{
+  margin-top: 10px;
+}

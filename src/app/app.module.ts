@@ -15,6 +15,7 @@ import { AdvDetailsComponent } from './pages/announcements/adv-details/adv-detai
 import { AdvCoverComponent } from './pages/announcements/adv-cover/adv-cover.component';
 import {ProfileComponent} from "./pages/profile/profile.component";
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import {AdvEditComponent} from "./pages/adv-edit/adv-edit.component";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     AnnouncementsComponent,
     AdvDetailsComponent,
     AdvCoverComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdvEditComponent
   ],
   imports: [
     BrowserModule,
