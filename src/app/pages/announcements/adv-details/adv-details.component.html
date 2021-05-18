@@ -52,7 +52,7 @@
         </form>
       </div>
       <div class="alert alert-success" *ngIf="isLoggedIn && advOwner">
-        <button class="btn btn-outline-secondary btn-lg">Usun</button>
+        <button class="btn btn-outline-secondary btn-lg" (click)="onSubmit()">Usun</button>
         <button class="btn btn-outline-secondary btn-lg"
                 routerLink="/advEdit/{{advertisement.id}}">Edytuj</button>
       </div>

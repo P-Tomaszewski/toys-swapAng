@@ -19,8 +19,9 @@ export class AdvService {
     );
   }
 
-  public findByUser(user: String): Observable<Advertisement[]> {
-    return this.http.get<Advertisement[]>(this.advUrl + '/us' + '/' + user)
+  public getByAgeCategory(ageCategory: String): Observable<Advertisement[]> {
+    console.log("ageCategory")
+    return this.http.get<Advertisement[]>(this.advUrl + '/age/' + ageCategory)
   }
 
   public save(adv: Advertisement): Observable<Advertisement>{

@@ -16,6 +16,7 @@ import { AdvCoverComponent } from './pages/announcements/adv-cover/adv-cover.com
 import {ProfileComponent} from "./pages/profile/profile.component";
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import {AdvEditComponent} from "./pages/adv-edit/adv-edit.component";
+import { AnnouncementsInCategory } from './pages/announcementInsCategory/announcementsInCategory';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {AdvEditComponent} from "./pages/adv-edit/adv-edit.component";
     AdvDetailsComponent,
     AdvCoverComponent,
     ProfileComponent,
-    AdvEditComponent
+    AdvEditComponent,
+    AnnouncementsInCategory
   ],
   imports: [
     BrowserModule,

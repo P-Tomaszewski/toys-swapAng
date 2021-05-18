@@ -1,0 +1,8 @@
+<div class="page">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <app-adv-cover
+      *ngFor="let advertisement of advs | async"
+      [adv]="advertisement"
+    ></app-adv-cover>
+  </div>
+</div>

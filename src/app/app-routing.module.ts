@@ -9,6 +9,7 @@ import {AnnouncementsComponent} from "./pages/announcements/announcements.compon
 import {AdvDetailsComponent} from "./pages/announcements/adv-details/adv-details.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {AdvEditComponent} from "./pages/adv-edit/adv-edit.component";
+import {AnnouncementsInCategory} from "./pages/announcementInsCategory/announcementsInCategory";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'adv', component: AdvComponent},
   {path: 'advEdit/:id', component: AdvEditComponent},
   {path: 'announcements', component: AnnouncementsComponent},
+  {path: 'announcements/age/:ageCategory', component: AnnouncementsInCategory},
   {path: 'announcements/:id', component: AdvDetailsComponent},
   {path: 'profile/:username', component: ProfileComponent},
   {path: '**', redirectTo: ''},
