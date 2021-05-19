@@ -1,31 +1,40 @@
 <div class="page">
+  <form (ngSubmit)="onSubmit()">
   <div class="row row-cols-1 row-cols-md-8 g-4">
     <h4><span>Marka:</span></h4>
-    <select (change)="getAdvByBrand($event)">
-      <option value=""></option>
+    <select type="text" class="form-control" [(ngModel)]="filtr.brand"
+            class="form-control"
+            name="brand">
+      <option selected value="undefined"></option>
       <option value="fisher price">Fisher price</option>
       <option value="Lego">Lego</option>
       <option value="Trefl">Trefl</option>
       <option value="Playmobil">Playmobil</option>
     </select>
     <h4><span>Miasto:</span></h4>
-    <select (change)="getAdvByBrand($event)">
-      <option value=""></option>
+    <select type="text" class="form-control" [(ngModel)]="filtr.city"
+            class="form-control"
+            name="city">
+      <option selected value="undefined"></option>
       <option value="Warszawa">Warszawa</option>
       <option value="Krakow">Krakow</option>
       <option value="Wrocław">Wrocław</option>
       <option value="Leszno">Leszno</option>
     </select>
     <h4><span>Kategoria:</span></h4>
-    <select (change)="getAdvByBrand($event)">
-      <option value=""></option>
+    <select type="text" class="form-control" [(ngModel)]="filtr.category"
+            class="form-control"
+            name="category">
+      <option selected value="undefined"></option>
       <option value="Edukacja i rozwój">Edukacja i rozwój</option>
       <option value="Figurki">Figurki</option>
       <option value="Gry">Gry</option>
       <option value="Klocki">Klocki</option>
     </select>
-    <button id="addAdv"  class="btn btn-outline-secondary btn-lg" >Filtruj</button>
   </div>
+    <button id="addAdv"  class="btn btn-outline-secondary btn-lg" (click)="getByCat()" >Filtruj</button>
+    <button  class="btn btn-outline-secondary btn-lg" (click)="getAll()">Zeruj filtry</button>
+  </form>
   <!--  <p><span>You selected: </span><b>{{selectedDay}}</b></p>-->
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <app-adv-cover

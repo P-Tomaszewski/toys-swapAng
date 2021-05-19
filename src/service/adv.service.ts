@@ -24,6 +24,11 @@ export class AdvService {
     return this.http.get<Advertisement[]>(this.advUrl + '/age/' + ageCategory)
   }
 
+  public getByCategory(ageCategory: String, brand: string, city: string, category: string): Observable<Advertisement[]> {
+    console.log("ageCategory")
+    return this.http.get<Advertisement[]>(this.advUrl + '/age' + '/category/' + ageCategory + '$' + brand + '$' + city + '$' + category  )
+  }
+
   public save(adv: Advertisement): Observable<Advertisement>{
     return this.http.post<Advertisement>(this.advUrl, adv)
   }
