@@ -4,7 +4,7 @@ import {Advertisement} from "../../../spec/advertisement";
 import {UserService} from "../../../service/user.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {AdvService} from "../../../service/adv.service";
-import {filter, map, switchMap} from "rxjs/operators";
+import {filter, map, switchMap, toArray} from "rxjs/operators";
 
 @Component({
   selector: 'app-category',
@@ -23,17 +23,25 @@ export class AnnouncementsInCategory implements OnInit {
   ngOnInit(): void {
     this.advs = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-      this.advService.getByAgeCategory(params.get('ageCategory')))
-      )
-    this.adv.filter(advs2 => advs2.ageCategory)
+        this.advService.getByAgeCategory(params.get('ageCategory')))
+    )
+    // this.getAdvByBrand("fisher price")
+
     // this.adv = this.advs.pipe(
     //   map(n => n),
     //   filter(this.advs => this.advs.)
     // )
   }
 
-  private sortByBrand(): void{
-    this
+  getAdvByBrand(brand: any){
+    this.advs = this.advs.pipe(map((advertisements: Advertisement[]) => advertisements.filter(ad => ad.brand === brand.target.value
+      // && ad.title === "zmiana"
+      ))
+    )
+    //  this.advs.subscribe(data=> {
+    //  data.filter(ad => ad.title == brand),
+    //    toArray()
+    // })
   }
 
 }

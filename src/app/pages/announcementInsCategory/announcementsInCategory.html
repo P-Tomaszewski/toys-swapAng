@@ -1,8 +1,37 @@
 <div class="page">
+  <div class="row row-cols-1 row-cols-md-8 g-4">
+    <h4><span>Marka:</span></h4>
+    <select (change)="getAdvByBrand($event)">
+      <option value=""></option>
+      <option value="fisher price">Fisher price</option>
+      <option value="Lego">Lego</option>
+      <option value="Trefl">Trefl</option>
+      <option value="Playmobil">Playmobil</option>
+    </select>
+    <h4><span>Miasto:</span></h4>
+    <select (change)="getAdvByBrand($event)">
+      <option value=""></option>
+      <option value="Warszawa">Warszawa</option>
+      <option value="Krakow">Krakow</option>
+      <option value="Wrocław">Wrocław</option>
+      <option value="Leszno">Leszno</option>
+    </select>
+    <h4><span>Kategoria:</span></h4>
+    <select (change)="getAdvByBrand($event)">
+      <option value=""></option>
+      <option value="Edukacja i rozwój">Edukacja i rozwój</option>
+      <option value="Figurki">Figurki</option>
+      <option value="Gry">Gry</option>
+      <option value="Klocki">Klocki</option>
+    </select>
+    <button id="addAdv"  class="btn btn-outline-secondary btn-lg" >Filtruj</button>
+  </div>
+  <!--  <p><span>You selected: </span><b>{{selectedDay}}</b></p>-->
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <app-adv-cover
       *ngFor="let advertisement of advs | async"
       [adv]="advertisement"
     ></app-adv-cover>
   </div>
+
 </div>
