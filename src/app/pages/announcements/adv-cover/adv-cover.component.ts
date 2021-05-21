@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Advertisement} from "../../../../spec/advertisement";
-import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-adv-cover',

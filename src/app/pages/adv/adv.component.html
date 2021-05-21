@@ -72,13 +72,15 @@
         </select>
       </div>
       <div class="condition">
-        <label for="inputCondition">City</label>
+        <label for="inputCondition">Miasto</label>
         <select id="inputCondition" [(ngModel)]="adv.city"
                 class="form-control"
                 name="city"
                 required #description="ngModel">
-          <option selected>Warszawa</option>
-          <option>...</option>
+          <option value="Warszawa">Warszawa</option>
+          <option value="Krakow">Krakow</option>
+          <option value="Wrocław">Wrocław</option>
+          <option value="Leszno">Leszno</option>
         </select>
       </div>
     </div>

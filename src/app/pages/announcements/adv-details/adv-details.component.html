@@ -1,6 +1,5 @@
 <div class="container">
-
-  <div class="row row-cols-md-3" *ngIf="advDetails | async as advertisement">
+  <div class="row row-cols-md-2" *ngIf="advDetails | async as advertisement">
     <form (ngSubmit)="onSubmit()">
       <div class="col">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -44,17 +43,28 @@
             </div>
           </div>
           <div class="form-group row">
+            <label for="category" class="col-sm-2 col-form-label">Kategoria: </label>
+            <div class="col-sm-10">
+              <div type="text" readonly class="form-control-plaintext " id="category"> {{advertisement.category}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="city" class="col-sm-2 col-form-label">Miasto: </label>
+            <div class="col-sm-10">
+              <div type="text" readonly class="form-control-plaintext" id="city"> {{advertisement.city}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
             <label for="price" class="col-sm-2 col-form-label">Cena: </label>
             <div class="col-sm-10">
-              <div type="text" readonly class="form-control-plaintext" id="price"> {{advertisement.price}}zł</div>
+              <div type="text" readonly class="form-control-plaintext col-form-label" id="price"> {{advertisement.price}}zł</div>
             </div>
           </div>
         </form>
       </div>
       <div class="alert alert-success" *ngIf="isLoggedIn && advOwner">
         <button class="btn btn-outline-secondary btn-lg" (click)="onSubmit()">Usun</button>
-        <button class="btn btn-outline-secondary btn-lg"
-                routerLink="/advEdit/{{advertisement.id}}">Edytuj</button>
+        <button class="btn btn-outline-secondary btn-lg" routerLink="/advEdit/{{advertisement.id}}">Edytuj</button>
       </div>
     </form>
 

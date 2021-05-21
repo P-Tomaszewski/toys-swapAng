@@ -11,3 +11,12 @@
 .container{
  position: center;
 }
+
+/*.form-control-plaintext{*/
+/*  text-align: left;*/
+/*  word-spacing: 5px;*/
+/*}*/
+
+.form {
+  word-spacing: 150px;
+}

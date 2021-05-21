@@ -1,13 +1,25 @@
-<div class="grid__item">
-  <div class="col">
-    <div class="card">
-      <div class="card-image">
-      <img [src]="'assets/' + adv.photo" />
-      </div>
-      <div class="card-content">
-        <h5 class="black-text" [routerLink]="['/announcements', adv.id]">{{ adv.title }}</h5>
-        <p class="card-text">{{ adv.brand }}</p>
-      </div>
+<!--<div class="grid__item">-->
+<!--  <div class="col">-->
+<!--    <div class="card">-->
+<!--      <div class="card-image">-->
+<!--      <img [src]="'assets/' + adv.photo" />-->
+<!--      </div>-->
+<!--      <div class="card-content">-->
+<!--        <h5 class="black-text" [routerLink]="['/announcements', adv.id]">{{ adv.title }}</h5>-->
+<!--        <p class="card-text">{{ adv.brand }}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="col">
+  <div class="card h-100">
+    <img [routerLink]="['/announcements', adv.id]" [src]="'assets/' + adv.photo" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5><button href="#" [routerLink]="['/announcements', adv.id]" class="link">{{ adv.title }}</button></h5>
+      <p class="card-text">Marka: {{ adv.brand }}</p>
+      <p class="card-text">Categoria: {{ adv.category }}</p>
+      <p class="card-text">Cena: {{ adv.price }}pln</p>
     </div>
   </div>
 </div>

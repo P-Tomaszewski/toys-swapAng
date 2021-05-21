@@ -1,5 +1,4 @@
 <div class="page">
-  <form (ngSubmit)="onSubmit()">
   <div class="row row-cols-1 row-cols-md-8 g-4">
     <h4><span>Marka:</span></h4>
     <select type="text" class="form-control" [(ngModel)]="filtr.brand"
@@ -32,15 +31,19 @@
       <option value="Klocki">Klocki</option>
     </select>
   </div>
-    <button id="addAdv"  class="btn btn-outline-secondary btn-lg" (click)="getByCat()" >Filtruj</button>
-    <button  class="btn btn-outline-secondary btn-lg" (click)="getAll()">Zeruj filtry</button>
-  </form>
+
+  <button  class="btn btn-outline-secondary btn-lg btn-block" (click)="getByCat()" >Filtruj</button>
+  <button  class="btn btn-outline-secondary btn-lg btn-block" (click)="getAll()">Zeruj filtry</button>
   <!--  <p><span>You selected: </span><b>{{selectedDay}}</b></p>-->
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3">
+
     <app-adv-cover
       *ngFor="let advertisement of advs | async"
       [adv]="advertisement"
     ></app-adv-cover>
   </div>
+
+
+
 
 </div>

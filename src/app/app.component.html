@@ -15,25 +15,19 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="announcements/age/9+">9+</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Marka </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Lego</a></li>
-            <li><a class="dropdown-item" href="#">Fisherprice</a></li>
-            <li><a class="dropdown-item" href="#">PolFirm</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-    <button class="btn btn-primary me-md-2"  routerLink="/login" type="button">Login</button>
-    <button class="btn btn-primary" routerLink="/register" type="button">Rejestracja</button>
+    <button class="btn btn-outline-secondary"  routerLink="/login" type="button">Login</button>
+    <button class="btn btn-outline-secondary" routerLink="/register" type="button">Rejestracja</button>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-    <button class="btn btn-primary" routerLink="/adv" type="button">Dodaj ogłoszenie</button>
+      <li class="nav-item">
+        <a href class="nav-link" routerLink="/adv">Dodaj ogłoszenie</a>
+      </li>
+<!--    <button class="nav-link" routerLink="/adv" type="button">Dodaj ogłoszenie</button>-->
       <li class="nav-item">
         <a class="nav-link" routerLink="/profile/{{username}}">{{ username }}</a>
       </li>
